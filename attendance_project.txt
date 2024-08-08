@@ -1,0 +1,32 @@
+namelist=["  sachin   ","   lakxi   ","  devraj   ","   pavan   ","   vasu    ","   vikas   ","  jayanth  ","   yash    ","   manu    "]
+date=input("Enter the attendance date (DD-MM-YYYY):")
+print("ATTENDANCE FOR :",date)
+print("=========================================================================")
+class attendancesys:
+    def __init__(self,date):
+        self.dic={"24-07-2024":{"  sachin   ":"P","   lakxi   ":"P","  devraj   ":"A","   pavan   ":"P","   vasu    ":"A","   vikas   ":"P","  jayanth  ":"A","   yash    ":"A","   manu    ":"P"},date:{}}
+    def attendance(self,date,namelist):
+        initial=100
+        for i in range(len(namelist)):
+            initial+=1
+            template=namelist[i]+"(Roll No:"+str(initial)+")"+"(enter P or A):      "
+            self.dic[date][namelist[i]]=input(template)
+    def display(self,date,namelist):
+        prev=list(self.dic.keys())
+        print("=========================ATTENDANCE HISTORY==========================")
+        print("+-----------+------------+------------+")
+        print("|    NAME   |",prev[0],"|",prev[1],"|")
+        print("+-----------+------------+------------+")
+        for i in range(len(namelist)):
+            template="|"+namelist[i]+"|      "+self.dic[prev[0]][namelist[i]]+"     |      "+self.dic[prev[1]][namelist[i]]+"     |"
+            print(template)
+            print("+-----------+------------+------------+")
+        print(self.dic)
+
+        
+day=attendancesys(date)
+day.attendance(date,namelist)
+day.display(date,namelist)
+
+        
+    
